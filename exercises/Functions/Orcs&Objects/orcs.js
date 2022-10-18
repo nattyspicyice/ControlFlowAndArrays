@@ -81,30 +81,106 @@
 
 
 //creating a class
-class Character { //class name is capitalized
-    constructor(name, age, eyes, hair, lovesCats = false, lovesDogs) {
-        this.legs = 2;
-        this.arms = 2;
-        this.eyes = eyes;
-        this.hair = hair;
-        this.name = name;
-        this.lovesCats = lovesCats;
-        this.lovesDogs = lovesDogs
+// class Character { //class name is capitalized
+//     constructor(name, age, eyes, hair, lovesCats = false, lovesDogs) {
+//         this.legs = 2;
+//         this.arms = 2;
+//         this.eyes = eyes;
+//         this.hair = hair;
+//         this.name = name;
+//         this.lovesCats = lovesCats;
+//         this.lovesDogs = lovesDogs || false;
+//     }
+//     //setter method
+//     setHair(hairColor){
+//         this.hair = hairColor;
+//     }
+//     //setter method ^
+//     greet(otherCharacter) {
+//         console.log("hi " + otherCharacter.name + "!");
+//     }
+//     classyGreeting(otherClassyGreeting) {
+//         console.log("Greetings" + otheClassyCharacter )
+//     }
+//     smite() {
+//         console.log("I smite thee");
+//     }
+// }
+// const player1 = new Character("Nat", 25, "green", "dirty blonde", true, true);
+// const enemy1 = new Character("Sauron", 10000, "red");
+
+// // console.log(typeof player1); //tells you we just created a new objects
+// // console.log(player1.greet("Bob"));
+// // console.log(player1.smite());
+// // console.log(enemy1.greet("Bill"));
+
+
+// player1.setHair('pink');
+// console.log(player1);
+
+
+// class Hobbit extends Character {
+//     constructor(name, age, eyes, hair){
+//         super(name, age, eyes, hair);
+//         this. skills = ['thievery', 'speed', 'willpower'];
+//     }
+//     steal() {
+//         console.log("Let's get away!");
+//     }
+//     //overrides previous greet functionality
+//     greet (otherCharacter) {
+//         console.log(`Hobbit says hello to ${otherCharacter}`)
+//     }
+//     smite () {
+//         super.smite();
+//         this.steal();
+//     }
+// }
+
+// const frodo = new Hobbit("Mr Baggins", 22, "blue", "brown");
+// // console.log(frodo);
+// // console.log(frodo.smite());
+// // console.log(frodo.steal());
+// // console.log(frodo.greet("sam"));
+
+// console.log(frodo.smite());
+
+
+class Car {
+    constructor(maker, serialNumber) {
+        this.serialNumber = serialNumber;
+        this.maker = maker;
     }
-    greet(otherCharacter) {
-        console.log("hi " + otherCharacter + "!");
-    }
-    smite() {
-        console.log("I smite thee");
+    drive() {
+        console.log('vroom vroom');
     }
 }
-const player1 = new Character("Nat", 25, "green", "dirty blonde", true, true);
-const enemy1 = new Character();
+//factory class
+class Factory {
+    constructor(company) {
+        this.company = company;
+        this. cars = [];
+    }
+    generateCar() {
+        const newCar = new Car(this.company, this.cars.length);
+        this.cars.push(newCar);
+    }
+    findCar(index) {
+        return this.cars[index];
+    }
+}
+const tesla = new Factory('Telsa');
+tesla.generateCar();
+tesla.generateCar();
+tesla.generateCar();
+tesla.generateCar();
+console.log(tesla);
+console.log(tesla.findCar(0));
 
-console.log(typeof player1); //tells you we just created a new objects
-console.log(player1.greet("Bob"));
-console.log(player1.smite());
-console.log(enemy1.greet("Bill"));
-console.log(player1);
-
- 
+const porche = new Factory('Porche');
+porche.generateCar();
+porche.generateCar();
+porche.generateCar();
+porche.generateCar();
+console.log(porche);
+console.log(porche.findCar(1));
